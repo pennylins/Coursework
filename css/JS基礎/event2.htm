@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>事件物件取得和使用 Event Object</title>
+<script type="text/javascript">
+function init(){
+	var btn=document.getElementById("btn");
+	var handler=function(e){
+		alert(e.clientX+","+e.clientY);
+	};
+	btn.addEventListener("click",handler);
+	/* 	未出現在畫面上的背後過程:
+		1. 使用者點擊了按鈕，觸發 click事件。
+		2. 瀏覽器主動收集和事件有關的資訊，並製造出 Event Object 事件物件。
+		   var eventObj=事件物件;
+		3. 呼叫已經註冊的事件處利器 (事件處理函式)
+		   handler(eventObj);
+		*可以在function裡替物件命名為任意字(ex. e)，這樣可以方便後續抓取資料 
+	*/
+	document.addEventListener("keydown",function(e){ //匿名函式: 用來直接當作事件處理器
+		alert(e.keyCode);
+	});
+}
+</script>
+</head>
+<body onload="init();">
+	<button id="btn">Click</button>
+</body>
+</html>

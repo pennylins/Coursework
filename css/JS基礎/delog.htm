@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta chartset="utf-8"/>
+<title>簡易的跳出式對話框</title>
+<style type="text/css">
+.dialog{
+    position:fixed;top:100px;left:50%;
+    /* 因為 left 的50%是以左邊邊線為準
+    因此看起來還不算置中 
+    所以利用【 transform 的線性變化(translate)】向左方微調
+    調的量是 width 的 1/2
+    */
+    transform: translate(-150px,0px);
+    width:300px;padding:20px;border:1px solid #888888;
+    background-color:#eeeeee;box-shadow:0px 0px 10px #000000;
+    display:none; /*先用 none 將對話框隱藏*/
+
+}
+.dialog>.close{
+    position:absolute;font-size:18px;top:10px;right:10px;cursor:pointer;
+}
+</style>
+<script>
+var dialog;
+window.onload=function(){
+    dialog=document.getElementById("dialog");
+}
+function showDialog(){
+    dialog.style.display="block";
+}
+function closeDialog(){
+    dialog.style.display="none";
+}
+</script>
+</head>
+<body>
+    <button onclick="showDialog();">聯絡資訊</button>
+    <div  id="dialog" class="dialog">
+        <div onclick="closeDialog();" class="close">X</div>
+        在這裡面加入對話框中的內容試試看八 會不會 <br/>
+        例如 Email: test@test.com
+    </div>
+</body>
+</html>

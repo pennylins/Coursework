@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <!-- 載入 Babel 編譯器套件-->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/redux@4.0.5/dist/redux.js"></script>
+    <style type="text/css">
+        .switch{
+            width:60px;
+            height:30px;
+            background-color: #dddddd;
+            border-radius:15px;
+        }
+        .switch>.btn{
+            width:30px;
+            height:30px;
+            background-color:#444444;
+            border-radius:15px;
+        }
+        .switch-on{
+            background-color: #ddffdd;
+        }
+        .switch-on>.btn{
+            background-color: #448844;margin-left:30px
+        }
+
+    </style>
+    <script type="text/babel">
+        // 開關中的圓形按鍵組件
+        class Button extends React.Component{
+            render(){
+                return <div className="btn"></div>
+            }
+        }
+        class Switch extends React.Component{
+            constructor(props){
+                super(props);
+                this.state=store.getState();
+            }
+            render(){
+                /*
+                let className="switch";
+                if(this.state.on){
+                    className+=" switch-on"
+                }
+                return <div onClick={this.update.bind(this)} className={className}>
+                    <div className="btn"></div>
+                </div>;
+                */
+                return <div className={"switch"+(this.state.on?" switch-on":"")} onClick={this.update.bind(this)}>
+                    <Button/>
+                </div>
+            }
+            update(){
+            // this.setState((currentState)=>({on:!currentState.on}));
+                store.dispatch({
+                    type: "Changeswitch"
+                })
+            }
+            // 連接 Redux 的狀態更新
+            refresh(){
+                this.setState(store.getState());
+            }
+            componentDidMount(){
+                this.unsubscribe=store.subscribe(this.refresh.bind(this));
+            }
+            componentWillUnmount(){
+                this.unsubscribe();
+            }
+        }
+            
+        // 以下是 Redux　的程式
+        let store;
+        let reducer=function(state, action){
+            switch(action.type){
+                case "Changeswitch":
+                    return {on:!state.on};
+                default:
+                    return state;
+            }
+        }
+        window.addEventListener("load", ()=>{
+            store=Redux.createStore(reducer,{on:false})
+            ReactDOM.render(<Switch/>, document.getElementById("switch-0"));
+            ReactDOM.render(<Switch/>, document.getElementById("switch-1"));
+        });
+
+    </script>
+</head>
+<body>
+    <div id="switch-0"></div>
+    <hr/>
+    <div id="switch-1"></div>
+</body>
+</html>

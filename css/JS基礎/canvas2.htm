@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Canvas</title>
+<script type="text/javascript">
+var cvs, ctx;
+window.onload=function(){
+	cvs=document.getElementById("cvs");
+	ctx=cvs.getContext("2d");
+	// 【載入固定的影像】
+	/*
+	var img=new Image();
+	img.src="Penny證件照.jpg";
+	img.onload=function(){ //註冊 load事件，圖片載入完成後，才做繪製
+		ctx.drawImage(img,0 ,0 , cvs.width, cvs.height);
+	};
+	*/
+}
+//【顏色反轉】
+function invertColor(){
+	var pixels=ctx.getImageData(0, 0, cvs.width, cvs.height); //ImageData 物件
+	var data=pixels.data; // 一個像素佔據 4 個資料(bytes)。=r ,g, b, a (範圍 0~255)
+	for(var i=0;i<data.length;i+=4){
+		data[i]=255-data[i]; // 紅
+		data[i+1]=255-data[i+1]; // 綠
+		data[i+2]=255-data[i+2]; // 藍
+	}
+	ctx.putImageData(pixels,0 ,0 );
+}
+//【上傳檔案】讓使用者新增想要的檔案
+function loadFile(input){
+	var file=input.files[0];
+	var src=URL.createObjectURL(file);
+	var img=new Image();
+	img.src=src;
+	img.onload=function(){
+		ctx.drawImage(this, 0 , 0 ,cvs.width, cvs.height);
+	}
+}
+//【儲存檔案】
+function saveFile(){
+	var link=document.getElementById("download");
+	link.download="image.jpg";
+	link.href=cvs.toDataURL("image/jpeg");
+	link.click();
+}
+</script>
+</head>
+<body>
+<div>
+	<input type="file" onchange="loadFile(this);" />
+	<button onclick="saveFile();">儲存檔案</button>
+	<a id="download"></a>	
+	<button onclick="invertColor();">顏色的反轉</button><
+</div>
+<canvas id="cvs" width="800" height="600" style="border:1px solid #000000"></canvas>
+</body>
+</html>

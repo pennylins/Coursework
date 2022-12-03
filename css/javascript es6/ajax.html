@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Ajax 網路連線基本操作</title>
+</head>
+<body>
+    <h1>AJAX 網路連線基本操作</h1>
+    <div id="list"></div>
+    <script>
+        //let data={"name":"姍姍"};  // 物件
+        let data='{"name":"姍姍"}';  // 字串
+        console.log("轉換前",data);
+        data=JSON.parse(data); // 把字串型態的資料轉換成物件
+        console.log("轉換後",data);
+        
+
+
+
+        // 先顯示 Loading 的訊息
+        let list=document.getElementById("list");
+        list.innerHTML="...Loading...";
+        // 透過 AJAX fetch API 連線到遠端的網址，抓取資料
+        /*
+            fetch(網址).then(function(response)){
+                // Response 物件，代表伺服器的回應
+            })
+        */
+        let src="https://pennylins.github.io/Test/data/production.json";
+        fetch(src).then(function(response){
+            //console.log(response);
+            //return response.text(); // 用字串的方式取回資料
+            return response.json(); // 將資料用 JSON 的格式詮釋成: 物件和陣列的組合
+        }).then(function(result){
+            //console.log("最終的資料", result); // 字串的形式很難用
+            console.log("最終的資料", result);
+            //  把抓到的資料放到畫面上
+            list.innerHTML="";
+            let product;
+            let sum=0;
+            for(let i=0;i<result.length;i++){
+                product=result[i];
+                list.innerHTML+=product.name.bold()+" - "+product.price+"<hr/>";
+                sum+=product.price;
+            }
+            let avg=sum/result.length;
+            list.innerHTML+="平均售價 : "+avg;
+        });
+    </script>
+</body> 
+</html>

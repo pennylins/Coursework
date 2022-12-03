@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .controller{
+            display: block;
+            padding: 6px 10px;
+            background-color: #000000;
+            color:#fff;
+            text-decoration: none;
+            width: 360px;
+        }
+        .text{
+            background-color: #ccc;
+            padding: 20px;
+            width: 340px;
+        }
+        .text.x{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <a href="#" class="controller controller1">開/關</a>
+    <div class="text text1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate saepe minima magnam, mollitia dignissimos libero enim consectetur delectus cumque corporis totam, labore odit aliquid asperiores! Rerum, unde. Facilis, accusantium vitae fuga optio eum officia autem eos facere, illum tenetur maxime ullam error. Molestias rerum voluptatum perferendis laboriosam dolorem, impedit excepturi nesciunt, voluptas illo non, dicta nulla eligendi praesentium repellat eveniet.</div>
+
+    <a href="#" class="controller controller2">開/關</a>
+    <div class="text text2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate saepe minima magnam, mollitia dignissimos libero enim consectetur delectus cumque corporis totam, labore odit aliquid asperiores! Rerum, unde. Facilis, accusantium vitae fuga optio eum officia autem eos facere, illum tenetur maxime ullam error. Molestias rerum voluptatum perferendis laboriosam dolorem, impedit excepturi nesciunt, voluptas illo non, dicta nulla eligendi praesentium repellat eveniet.</div>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            //dont touch above!
+
+            $('.controller1').click(function(){
+                $('.text1').toggleClass('x');
+            });
+
+            $('.controller2').click(function(){
+                $('.text2').toggleClass('x');
+            });
+
+
+
+
+            //dont touch below!
+        })
+    </script>
+</body>
+</html>

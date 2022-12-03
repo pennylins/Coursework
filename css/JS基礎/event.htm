@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8"/>
+<title>Event 事件處理</title>
+<script type="text/javascript">
+// 基本的【靜態事件處理】
+// 透過 over 和 out 的指定，讓閱讀上更美觀，也可以套用至其他的程式
+function over(element){
+	element.style.color="red";
+}
+function out(element){
+	element.style.color="black";
+}
+
+// 用 Javascript的程式，【動態】的註冊事件處理器
+function init(){
+	var btn=document.getElementById("btn");
+	/* 【老式寫法】
+	btn.onclick=function(){
+		alert("Clicked");
+	}*/
+	// 【標準寫法: 建議目前都寫這個】
+	var handler=function(){ // 準備一個事件處理器(對應事件的函式)=handler
+		alert("Clicked");
+	};
+	btn.addEventListener("click"/* 事件的名稱 */, handler /*事件處理器的名稱*/);
+}
+</script>
+<head>
+</head>
+<body onload="init()";>
+	<button id="btn">Click</button>
+	<span onclick="alert('按到我了');">Text</span>	
+	<div onmouseover="out(this);" 
+		onmouseout="over(this)">Line 2</div>		
+	<div onmouseover="out(this);" 
+		onmouseout="over(this)">測試三</div>
+</body>
+</html>

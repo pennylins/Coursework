@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transition</title>
+    <style type="text/css">
+        .btn{
+            display:inline-block;
+            padding: 10px 20px;
+            background-color: #000000;
+            text-decoration: none;
+            color:#fff;
+            /* transition: 屬性 轉換時間 延遲執行時間 速度 
+            可以用逗號(,)隔開，並分組使用  */
+            transition: padding 0.2s 0s ease, background-color 0.2s 1s;
+        }
+        .btn:hover{
+            background-color: #f00;
+            color: #fa0;
+            padding: 10px 30px;
+
+        }
+    </style>
+</head>
+<body>
+    <a href="#" class="btn">送出</a>
+</body>
+</html>

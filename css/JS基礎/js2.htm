@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"></meta>
+<title>Javascript</title>
+<script type="text/javascript">
+//內建函式
+//alert("Hello World");
+//函式的基礎
+//設計階段
+/*
+function add(n1,n2/*參數的名稱，可以放多個參數){
+	//函式的本體(內部)
+	alert(n1+n2);
+	return n1+n2;
+}
+
+//呼叫/使用階段
+var result=add(3,4)*add(10,20); //傳入函式的參數資料
+alert(result);
+*/
+//整合範例
+function getsum(max){
+	var sum=0;
+	var n=1;
+	while(n<=max){
+		sum=sum+n;
+		n++;
+	}
+	alert(sum);
+	return sum;
+}
+var result=getsum(100)*getsum(50);
+alert(result);
+
+</script>
+</head>
+<body>
+</body>
+</html>

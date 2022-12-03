@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>我的第一個組件</title>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script>
+        // 設計組件類別
+        class MyHead extends React.Component{
+            render(){
+                //console.log(this.props.level);
+                return React.createElement("h"+this.props.level, null,"https://www.google.com");
+            }    
+        }
+        class Myheadlist extends React.Component{
+            constructor(props){
+                super(props);
+                this.state={maxLevel:3};
+                window.setTimeout(()=>{
+                    // 2 秒鐘之後，執行以下的程式碼
+                    //this.setState({maxLevel:6});
+                    this.setState((currentState, currentProps)=>({maxLevel:currentState.maxLevel+1}));
+                },2000);
+            }
+            render(){
+                let heads=[];
+                let head;
+                for(let i=1;i<this.state.maxLevel;i++){
+                    head=React.createElement(MyHead,{level:i});
+                    heads.push(head);
+                }
+                return React.createElement("DIV",null, heads);
+            }
+        }
+        window.addEventListener("load", ()=>{
+            //1. 建立自訂的 React 組件實體，給定屬性
+            let mycomponent=React.createElement(Myheadlist, null);
+            //2. 將建立好的 React 組件實體畫到容器中
+            ReactDOM.render(mycomponent, document.body); 
+           });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

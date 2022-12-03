@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HTML DOM</title>
+<script type="text/javascript">
+//範例: alert(window.screen.width+"x"+window.screen.height);
+function change(){ //window. 是可以省略的
+	var spanObj=document.getElementById("emotion");
+	spanObj.innerHTML="bad";
+	spanObj.style.color="red";
+	spanObj.style.fontWeight="bold"; 
+	//javascript不能有dash，所以會把dash去掉，後面的首字大寫，例如font-weight=fontWeight
+	spanObj.style.display="none"; //會把字關掉，不顯示出來
+}
+</script>
+</head>
+<body>
+	<div>
+		Today is a <span id="emotion">good</span> day. Let's go to movie.
+	</div>
+	<button onclick="change();">Change</button>
+</body>
+</html>

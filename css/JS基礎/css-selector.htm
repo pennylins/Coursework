@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>CSS-選擇器介紹</title>
+<style type="text/css">
+/* 標籤名稱選擇器 */
+body{
+	font-sixe:16px;font-family:"微軟正黑體"
+}
+h3{
+	font-size:24px;text-decoration:underline;
+}
+
+/* class 選擇器 */
+div.content{
+	padding:20px;border:2px solid #800008;
+}
+
+/* id選擇器 */
+#btn{
+	border:2px solid #734566;
+	background-color:#ffffff;padding:5px;
+}
+
+/* 虛擬選擇器:搭配其他選擇器使用 */
+
+/* :hover 虛擬選擇器:滑鼠移到目標上的時候，套用一組設定 */
+#btn:hover{
+	background-color:#888888
+}
+
+/* :focus 虛擬選擇器: 當目標取得焦點時，套用一組設定*/
+input:focus{
+	border:2px solid #ff0000;
+
+}
+
+/* 階層式選擇器:搭配其他選擇器使用 */
+.favorite a{
+	color:#0000ff;
+
+}
+.demo a{
+	color:#008800;
+
+}
+
+
+</style>
+</head>
+<body>
+	<h3>我的自我介紹</h3>
+	<div class="content">
+		大家好我是蓬蓬。
+	</div>
+	<h3>我的最愛連結</h3>
+	<ul class="favorite">
+		<li><a href="https://www.google.com/">Google</a></li>
+		<li><a href="https://www.facebook.com/">Facebook</a></li>
+	</ul>
+
+	<h3>我的作品</h3>
+	<ul class="demo">
+		<li><a href="https://pennylins.weebly.com/">我的作品網站</a></li>
+		<li><a href="https://www.facebook.com/">Facebook</a></li>
+	</ul>
+	<h3>與我聯絡</h3>
+	<div class="content">
+		填寫訊息<input type="text"/><button id="btn">送出</button>
+	</div>	
+</body>
+</html>

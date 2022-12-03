@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"></meta>
+<title>Javascript</title>
+<script type="text/javascript">
+/* 【while迴圈】
+	while(判斷){
+		若判斷的結果是正確的(true),執行大括號區塊中的程式碼。
+		
+		程式碼執行完畢，回到上方while的位置，做第二次判斷。
+		直到判斷結果是錯誤的(false)，才跳離整個迴圈結構。
+	}
+
+var n=0;
+while(n<=50){
+	n++;
+}
+alert(n);
+
+
+var sum=0;
+var i=1;
+while(i<=100){
+	sum=sum+i; //sum+=i;
+	i++;
+}
+alert(sum);
+*/
+
+
+/* 【for迴圈】
+	for(初始區塊;判斷;迴圈區塊){
+		判斷概念同 while 迴圈。
+		請在講解中，注意「初始區塊」與「迴圈區塊」的執行時機。
+	}
+
+
+var sum=0;
+for(var i=1;i<=100;i++){
+	sum=sum+i; //sum+=i;
+	
+}
+alert(sum);
+*/
+
+/*
+	break;強制跳出迴圈
+	continue;強制進行下一次的迴圈
+*/
+/*【break範例】
+var n=0;
+while(n<=100){
+	if(n==50){
+		break;
+	}
+	n++;
+}
+alert(n);
+*/
+/*【continue範例】
+var x=0;
+for(var n=0;n<=100;n++){
+	if(n%4==0){
+		continue;
+	}
+	x++;
+}
+alert(x);
+*/
+/* 【if判斷1】
+	if(判斷){
+		若判斷的結果是正確的(true)，則執行大括號區塊中的程式碼。
+		反之(false)，則忽略此區塊。	
+	}
+
+var money=prompt("要提多少錢","")
+if(money>30000){
+	alert("不能提那麼多錢")
+}
+*/
+/*	【if判斷2】
+	if(判斷){
+		若判斷的結果是正確的(true)，則執行大括號區塊中的程式碼。
+		}else{
+			若判斷的結果是錯誤的(false)，則執行else大括號區塊中的程式碼。
+	}
+
+var money=prompt("要提多少錢","")
+if(money>30000){
+	alert("不能提那麼多錢");
+}else{
+	alert("恭喜，錢給你了")
+}
+*/
+
+/*【if判斷3】
+	if(判斷一){
+		先做第一次判斷，若正確的(true)，執行此區塊程式碼。
+		若第一次判斷錯誤(false)，繼續進行下方else if 的第二次判斷。
+	}else if{
+		同上
+	}else{
+		若以上所有判斷都錯誤(false)，則執行else區塊中的程式碼。
+	}
+*/
+/*【if範例1】
+var n=prompt("請輸入數字","");
+if(n>500){
+	alert(n+">500");
+}else if(n>300){
+	alert(n+">300");
+}else{
+	alert(n+"<=300");
+}
+*/
+/*【if範例2】
+var n1=prompt("請輸入第一個數字","");
+var n2=prompt("請輸入第二個數字","");
+//資料型態的轉換:把字串=>數字
+n1=Number(n1); // Number(資料)
+n2=Number(n2);
+var op=prompt("請輸入運算符號: +, -, *, /","");
+var result;
+if(n1 & n2=\)
+	if(op=="+"){
+		result=n1+n2;
+	}else if(op=="-"){
+		result=n1-n2;
+	}else if(op=="*"){
+		result=n1*n2;
+	}else if(op=="/"){
+		result=n1/n2;
+	}else{
+		alert("不合法的運算符號");
+	}
+	alert(result);
+*/
+
+/*【基本概念】	
+	//單行註解
+	/*
+		多行註解
+	*/
+	// 資料
+	/*1;
+	15.55;
+	"這是字串";
+	true;
+	false;
+	// 變數
+	/*
+	var x;
+	x=15;
+	alert(x);
+	x="我是姍姍";
+	alert(x);
+	var y=true;
+	*/
+	// 運算子
+	/*
+	15+20;
+	alert(15+20);
+	var result=15*15;
+	alert(result);
+	result++;
+	alert(result);
+	result=result+1; // =result++;
+	*/
+	/*
+	4>3;
+	result=4==3; // == 指的是比較兩個值是否相等
+	alert(result);
+	var data=3;
+	result=data*data;
+	alert(data);
+	alert(result);
+	*/
+	// 範例
+	//輸入: prompt(提示語,預設值) -> 程式運算 -> 輸出 alert(資料)
+	/*
+	var n1=prompt("請輸入數字","請輸入半形字體");
+	var n2=prompt("請輸入數字","請輸入半形字體");
+	var result=n1*n2;
+	alert(result);
+	*/	
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>宣告提升 Hoisting</title>
+<script>
+// 只有宣告 變數(var) or 函式的宣告會被提升
+// 如果同時宣告變數+給資料的話，程式只會執行宣告變數的提升!!
+//x=10; // 給定初始資料
+/*alert(x); // 使用變數
+var x=10; // 宣告變數，同時給定初始資料
+*/
+
+/* 【函式1: 基本的函式宣告(不使用var)】
+test(); // 呼叫函式
+function test(){ // 函式的宣告
+	alert("Hello");
+}
+*/
+
+test(); // 呼叫函式
+var test=function test(){ // 函式的宣告
+	alert("Hello");
+}
+
+</script>
+</head>
+<body>
+</body>
+</html>

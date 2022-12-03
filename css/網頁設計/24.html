@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            /* 這是先清除原先預設的格式，屬於過度css的用法 */
+        }
+        .wrap{
+            width: 100%;
+            max-width: 1400px;
+            margin: auto;
+        }
+        .item{
+            background-color: #ffa;
+            margin: 0px 10px 20px;
+            padding: 10px;
+        }
+        @media screen and (min-width: 768px){
+            .wrap{
+                display: flex;
+                /* 設定 flex 就可以不用用float了 */
+            }
+            .item{
+                width: 500px;
+                /* 設定width 可以避免版面因為內容少而跑版 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="item">
+            <h3>title</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat atque accusamus animi officia ipsa d</p>
+        </div>
+        <div class="item">
+            <h3>title</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat atque accusamus animi officia ipsa deserunt, aliquid, perferendis cum error nihil quidem eos perspiciatis culpa ducimus laboriosam aperiam! Eius nesciunt voluptates neque nemo quam deleniti libero provident maxime possimus? Tempora, culpa!</p>
+        </div>
+        <div class="item">
+            <h3>title</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat atque accusamus animi officia ipsa deserunt, aliquid, perferendis cum error nihil quidem eos perspiciatis culpa ducimus laboriosam aperiam! Eius nesciunt voluptates neque nemo quam deleniti libero provident maxime possimus? Tempora, culpa!</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Video Player</title>
+<script type="text/javascript">
+/*
+【最簡單的寫法就是直接在body部分寫:
+<video src="影片名稱(含檔名)" controls autoplay></video>
+就會有撥放列和 自動撥放】
+*/
+var video;
+window.onload=function(){
+	video=document.getElementById("video");
+	video.addEventListener("timeupdate",updateTimer);
+	video.addEventListener("ended",function(){
+		alert("影片播放結束");
+	})
+}
+function updateTimer(){
+	var timer=document.getElementById("timer");
+	timer.innerHTML=video.currentTime+":"+video.duration;
+}
+function playVideo(){
+	video.play();
+}
+function pauseVideo(){
+	video.pause();
+}
+function replayVideo(){
+	video.currentTime=0;
+	video.play();
+}
+</script>
+</head>
+<body>
+	<video id="video" src="video.mp4"></video>
+	<div>
+		<button onclick="playVideo()";>播放</button>
+		<button onclick="pauseVideo()";>暫停</button>
+		<button onclick="replayVideo()";>重播</button>
+		<span id="timer"></span>
+	</div>
+</body>
+</html>

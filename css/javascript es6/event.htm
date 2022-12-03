@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta chartset="utf-8"/>
+    <title>事件處理 Event handeling</title>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <!-- 載入 Babel 編譯器套件-->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- 包含 JSX 語法的 Javascript 必須使用 type="text/babel"-->
+    <style type="text/css">
+        .head-3{font-size:1.2em;font-weight:bold;}
+    </style>
+    <script type="text/babel">
+        // 設計組件類別
+        class MyHead extends React.Component{
+            constructor(props){
+                super(props);
+                this.state={color:"red"};
+            }
+            render(){
+                return <div className={"head-"+this.props.level} 
+                    style={{color:this.state.color}}
+                    onClick={this.clickHandler.bind(this)}
+                    onMouseOver={this.mouseOverHandler.bind(this)}
+                    onMouseOut={this.mouseOutHandler.bind(this)}>Heoll World</div>
+            }
+            mouseOutHandler(e){
+                this.setState({color:"red"});
+            }
+            mouseOverHandler(e){
+                this.setState({color:"yellow"});
+            }
+            clickHandler(e){
+                // 當使用者點擊，把顏色換掉
+                // 千萬不可以使用【this.state.color:"blue";}
+                this.setState({color:"blue"});
+            }
+        } 
+        window.addEventListener("load",()=>{
+            ReactDOM.render(<MyHead level="3"/>, document.body);
+        });
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>
